@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+       <meta charset="UTF-8">
+    <title>MobiLeLeLe</title>
+    <link rel="stylesheet" href="/css/reset-css.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="/"><img alt="car picture" src="/images/car.png" class="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div th:replace="~{/fragments/navbar::navbar(acticeLink = ${'allBrands'})}"></div>
+    </nav>
+</div>
+
+<div class="container">
+    <h2 class="text-center text-white m-3">All Brands</h2>
+    <div class='row mb-4 d-flex justify-content-around'>
+        <div  class="brand-section col-md-5 mr-auto d-flex flex-column" th:each="brand : ${brands}">
+            <h2>Car brand:
+                <span th:text="${brand.getName}">Brand name</span>
+            </h2>
+            <div>Models:
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Start Year</th>
+                        <th>End Year</th>
+                        <th>Picture</th>
+                    </tr>
+                    <tr th:each="model,iter :${brand.modelDtoList}">
+                        <th th:text="${iter.count}">No</th>
+                        <th th:text="${model.name}">Model Name</th>
+                        <th th:text="${model.category}">Model Category</th>
+                        <th th:text="${model.startYear}">Model Start Year</th>
+                        <th th:text="${model.endYear}">Model End Year</th>
+                        <th><img alt="image" th:src="${model.imageUrl}"
+                                 class="img-thumbnail rounded"></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+             <footer> </footer>
+    </div>
+</div>
+</body>
+</html>

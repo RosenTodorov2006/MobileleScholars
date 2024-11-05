@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'
+      xmlns:th='http://www.thymeleaf.org'
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div th:fragment="navbar(acticeLink)" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto col-12 justify-content-between">
+        <li class="nav-item">
+            <a class="nav-link" href="/brands/all" th:classappend="${acticeLink == 'allBrands'} ? 'active'" th:text="#{nav_bar_all_brands}">All Brands</a>
+        </li>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" href="/offers/add" th:classappend="${acticeLink == 'offersAdd'} ? 'active'" th:text="#{nav_bar_add_offers}">Add Offer</a>
+        </li>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <a class="nav-link" href="/offers/all" th:classappend="${acticeLink == 'offers'} ? 'active'" th:text="#{nav_bar_all_offers}">All Offers</a>
+        </li>
+        <li class="nav-item dropdown" sec:authorize="hasRole('Admin')">
+            <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/">Action</a>
+                <a class="dropdown-item" href="/">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/">Something else here</a>
+            </div>
+        </li>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+            <div class="form-inline my-2 my-lg-0 border px-3">
+                <div class="logged-user"
+                     text="Welcome, Gosho"></div>
+                <form th:action="@{/users/logout}"  th:method="post">
+                    <button class="nav-link" type="submit" style="margin-right: 2em;font-size: 1.3em ;border: none; background: none;" th:text="#{nav_bar_logout}">Logout</button>
+                </form>
+            </div>
+        </li>
+
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" href="/users/register" th:classappend="${acticeLink == 'register'} ? 'active'" th:text="#{nav_bar_login_register}">Register</a>
+        </li>
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+            <a class="nav-link" href="/users/login" th:classappend="${acticeLink == 'login'} ? 'active'" th:text="#{nav_bar_login}">Login</a>
+        </li>
+        <li class="nav-item">
+            <form th:method="get">
+                <label class="text-white" for="lang" th:text="#{nav_bar_language}">Language</label>
+                <select
+                        id="lang"
+                        name="lang"
+                        onchange="this.form.submit()">
+                    <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
+                    <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
+                </select>
+            </form>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
