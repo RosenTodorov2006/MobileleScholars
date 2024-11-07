@@ -27,6 +27,22 @@ public class Model extends BaseEntity{
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
 
+    public Model(int category, LocalDateTime created, int endYear, String imageUrl, LocalDateTime modified, String name, int startYear, Brand brand) {
+        this.category = category;
+        this.created = created;
+        this.endYear = endYear;
+        this.imageUrl = imageUrl;
+        this.modified = modified;
+        this.name = name;
+        this.startYear = startYear;
+        this.brand = brand;
+    }
+
+    public Model() {
+
+    }
+
+
     public int getCategory() {
         return category;
     }
