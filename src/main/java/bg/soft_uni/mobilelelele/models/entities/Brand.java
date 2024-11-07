@@ -22,6 +22,17 @@ public class Brand extends BaseEntity{
 
     @OneToMany(mappedBy = "brand")
     private List<Model> models;
+
+    public Brand(LocalDateTime created, LocalDateTime modified, String name) {
+        this.created = created;
+        this.modified = modified;
+        this.name = name;
+    }
+
+    public Brand() {
+
+    }
+
     public LocalDateTime getCreated() {
         return created;
     }
