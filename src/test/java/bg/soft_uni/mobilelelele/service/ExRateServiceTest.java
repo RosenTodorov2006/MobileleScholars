@@ -3,7 +3,7 @@ package bg.soft_uni.mobilelelele.service;
 import bg.soft_uni.mobilelelele.config.ExRateConfig;
 import bg.soft_uni.mobilelelele.models.entities.ExRate;
 import bg.soft_uni.mobilelelele.repositories.ExRateRepository;
-import bg.soft_uni.mobilelelele.services.ExRateService;
+import bg.soft_uni.mobilelelele.services.impl.ExRateService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

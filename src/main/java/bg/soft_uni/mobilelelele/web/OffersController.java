@@ -1,7 +1,7 @@
 package bg.soft_uni.mobilelelele.web;
 
 import bg.soft_uni.mobilelelele.models.dtos.OfferExportDto;
-import bg.soft_uni.mobilelelele.services.ExRateService;
+import bg.soft_uni.mobilelelele.services.impl.ExRateService;
 import bg.soft_uni.mobilelelele.services.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
