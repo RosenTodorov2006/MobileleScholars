@@ -1,4 +1,4 @@
-package bg.soft_uni.mobilelelele.services;
+package bg.soft_uni.mobilelelele.services.impl;
 
 import bg.soft_uni.mobilelelele.config.ExRateConfig;
 import bg.soft_uni.mobilelelele.models.dtos.ExRateDto;
