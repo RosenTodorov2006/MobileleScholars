@@ -29,7 +29,7 @@
 
 
 <div class="container-fluid">
-    <h5 class="text-center text-white mt-5">Welcome to MobiLeLeLe</h5>
+    <h5 class="text-center text-white mt-5" th:text="#{home_welcome}">Welcome to MobiLeLeLe</h5>
     <h5 class="text-center text-white mt-5" sec:authorize="isAuthenticated()" sec:authentication="name" >Hello 'name'</h5>
 </div>
 
