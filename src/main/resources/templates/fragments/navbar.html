@@ -35,7 +35,7 @@
             <div class="form-inline my-2 my-lg-0 border px-3">
                 <div class="logged-user"
                      text="Welcome, Gosho"></div>
-                <form th:action="@{/users/logout}"  th:method="post">
+                <form th:action="@{/users/logout}"  th:method="post"  style="border: none; background: none;">
                     <button class="nav-link" type="submit" style="margin-right: 2em;font-size: 1.3em ;border: none; background: none;" th:text="#{nav_bar_logout}">Logout</button>
                 </form>
             </div>
@@ -48,7 +48,7 @@
             <a class="nav-link" href="/users/login" th:classappend="${acticeLink == 'login'} ? 'active'" th:text="#{nav_bar_login}">Login</a>
         </li>
         <li class="nav-item">
-            <form th:method="get">
+            <form th:method="get" style="padding-top: 0.5em">
                 <label class="text-white" for="lang" th:text="#{nav_bar_language}">Language</label>
                 <select
                         id="lang"
